@@ -43,22 +43,22 @@ const users = [
     }
 ];
 //filtering user who scored more than 85
-// function getScore(userScore){
-//     const a = users.filter(element=>element.scores>= userScore)
-//     console.log(a)
-// }
-// getScore(85);
+function getScore(userScore){
+    const a = users.filter(element=>element.scores>= userScore)
+    console.log(a)
+}
+getScore(85);
 
 
 //adding user only if user doesnt exist
-// function addUser(name,score,skills,age){
-//     if(!users.find(element=>element.name==name)){
-//         users.push({name:name, scores:score, skills:skills, age:age})
-//         console.log(users)
-//     }else{
-//         console.log(`user ${name} already exist`)
-//     }};
-// addUser('Thomas',100,["fullstack"],26);
+function addUser(name,score,skills,age){
+    if(!users.find(element=>element.name==name)){
+        users.push({name:name, scores:score, skills:skills, age:age})
+        console.log(users)
+    }else{
+        console.log(`user ${name} already exist`)
+    }};
+addUser('Thomas',100,["fullstack"],26);
 
 
 
@@ -73,3 +73,17 @@ function addUserSkill(name, skillSet){
     }};
 addUserSkill('Thomas', 'backend')
 
+
+//function which editUser if the user exist in the users array.
+function editUser(name,scores,skills,age){
+    let user = users.findIndex(e=>e.name==name);
+    if(user>=0){
+        delete users[user];
+        users[user]=[name,scores,skills,age];
+        console.log(users)
+    } else{
+        console.log(`user ${name} doesn't exist`)
+    }
+    
+}
+editUser('Thomas',25,["Nodejs","MongoDB"],10)
