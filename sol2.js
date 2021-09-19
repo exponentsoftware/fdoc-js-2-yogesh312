@@ -42,11 +42,19 @@ const users = [
         age:20
     }
 ];
-//adding user only if user doesnt exit
-function addUser(name,score,skills,age){
-    if(!users.find(element=>element.name==name)){
-        users.push({name:name, scores:score, skills:skills, age:age})
-    }
-    console.log(users)
+//filtering user who scored more than 85
+function getScore(userScore){
+    const a = users.filter(element=>element.scores>= userScore)
+    console.log(a)
 }
-addUser('y',100,["fullstack"],26);
+getScore(85);
+
+
+//adding user only if user doesnt exist
+// function addUser(name,score,skills,age){
+//     if(!users.find(element=>element.name==name)){
+//         users.push({name:name, scores:score, skills:skills, age:age})
+//     }
+//     console.log(users)
+// }
+// addUser('y',100,["fullstack"],26);
