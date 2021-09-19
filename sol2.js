@@ -43,18 +43,33 @@ const users = [
     }
 ];
 //filtering user who scored more than 85
-function getScore(userScore){
-    const a = users.filter(element=>element.scores>= userScore)
-    console.log(a)
-}
-getScore(85);
+// function getScore(userScore){
+//     const a = users.filter(element=>element.scores>= userScore)
+//     console.log(a)
+// }
+// getScore(85);
 
 
 //adding user only if user doesnt exist
 // function addUser(name,score,skills,age){
 //     if(!users.find(element=>element.name==name)){
 //         users.push({name:name, scores:score, skills:skills, age:age})
-//     }
-//     console.log(users)
-// }
-// addUser('y',100,["fullstack"],26);
+//         console.log(users)
+//     }else{
+//         console.log(`user ${name} already exist`)
+//     }};
+// addUser('Thomas',100,["fullstack"],26);
+
+
+
+// function which addUserSkill which can add skill to a user only if the user exist.
+function addUserSkill(name, skillSet){
+    let gotUser = users.find(element=>element.name==name);
+    if(gotUser){
+        gotUser.skills.push(skillSet);
+        console.log(users)
+    }else{
+        console.log(`user ${name} doesn't exist`)
+    }};
+addUserSkill('Thomas', 'backend')
+
